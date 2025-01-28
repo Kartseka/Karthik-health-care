@@ -20,7 +20,7 @@ spec:
 
 ---
 apiVersion: v1
-kind: Service 
+kind: Service
 metadata:
   name: healthcare
 spec:
@@ -28,6 +28,6 @@ spec:
     app: healthcare  # Ensure this matches the labels in the Deployment
   type: NodePort
   ports:
-    - port: 80  # External port exposed by the Service
+    - port: 80         # External port exposed by the Service
       targetPort: 8082  # The port on the container to which the traffic will be directed
-      nodePort: 30007  # The port on the node which will be exposed
+      nodePort: 30007   # The port on the node which will be exposed
