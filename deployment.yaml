@@ -6,17 +6,17 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: healthcare
+      app: healthcare  # Ensure the label here matches the selector in the Service
   template:
     metadata:
       labels:
-        app: healthcare  # Ensure the label here matches the selector in the Service
+        app: healthcare  # Ensure this matches the selector in the Service
     spec:
       containers:
-        - name: simple-container
+        - name: healthcare-container
           image: kartseka1/healthcare-karthi:1
           ports:
-            - containerPort: 8082
+            - containerPort: 8082  # Ensure the application is listening on this port
 
 ---
 apiVersion: v1
@@ -28,6 +28,6 @@ spec:
     app: healthcare  # Ensure this matches the labels in the Deployment
   type: NodePort
   ports:
-    - port: 80
-      targetPort: 8082
-      nodePort: 30007
+    - port: 80  # External port exposed by the Service
+      targetPort: 8082  # The port on the container to which the traffic will be directed
+      nodePort: 30007  # The port on the node which will be exposed
