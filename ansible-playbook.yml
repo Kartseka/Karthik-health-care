@@ -26,4 +26,4 @@
         state: started
         restart_policy: always
         ports:
-          - "8087:8082"  # Mapping ports 8087 on host to 8082 in container
+          - "8086:8082"  # Mapping ports 8087 on host to 8082 in container
